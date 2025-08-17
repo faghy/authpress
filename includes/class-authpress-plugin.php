@@ -132,4 +132,11 @@ final class AuthPress_Plugin
             }
         }
     }
+
+    public function get_default_provider()
+    {
+        $providers_options = get_option('wp_factor_providers', []);
+        // Return the configured default, or 'email' as a fallback.
+        return isset($providers_options['default_provider']) ? $providers_options['default_provider'] : 'email';
+    }
 }
